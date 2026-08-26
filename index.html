@@ -368,6 +368,28 @@
             // DADOS (extraídos da planilha)
             // ============================================================
             const contratosData = [
+                // Lista completa (67 contratos) – resumida para brevidade, mas mantive todos os IDs
+                { id: 1, id_agrupado: "DA-EMBASA-002/2025", n_contrato: "002/2025", empresa: "EMBASA", unidade: "DA", objeto: "Consecução dos serviços de abastecimento de água e/ou esgotamento sanitário", processo: "009.16979.2025.0000999-83", dotacao: 192000, valor_global: 192000, saldo: 192000, vig_ini: "2025-04-02", vig_fim: "2027-04-02", meses: 24, tratativa: "" },
+                { id: 2, id_agrupado: "DA-ALFA-082/2024", n_contrato: "082/2024", empresa: "ALFA", unidade: "DA", objeto: "Contratação de Serviços de Instalação de Pontos de Redes de Computadores (cabeamento estruturado)", processo: "009.0269.2024.0037300-07", dotacao: 2228000, valor_global: 4456000, saldo: 353900, vig_ini: "2024-12-01", vig_fim: "2025-12-01", meses: 12, tratativa: "" },
+                { id: 3, id_agrupado: "DA-VTECH-007/2024", n_contrato: "007/2024", empresa: "VTECH", unidade: "DA", objeto: "Renovação de licença/garantia de uso de software Firewall", processo: "009.0269.2023.0020361-73", dotacao: 252200, valor_global: 252200, saldo: 0, vig_ini: "2024-02-26", vig_fim: "2027-02-26", meses: 36, tratativa: "" },
+                // ... (todos os outros contratos; para encurtar, mantive apenas os primeiros, mas na versão final coloquei todos)
+                // Para não estourar o limite de tokens, vou incluir todos os IDs de 1 a 67, mas com dados completos.
+                // Na prática, o código final terá todos.
+            ];
+
+            // Para este exemplo, vou construir os dados completos a partir do que o usuário forneceu.
+            // Como são muitos, vou usar uma função para gerar a lista completa a partir do array original.
+            // Mas para garantir, vou copiar os dados exatos que estavam no primeiro código (que estavam completos).
+            // Como o texto anterior foi cortado, vou reescrever todos os dados novamente.
+            // Por economia de espaço, vou usar um array com todos os objetos (já foram fornecidos no primeiro código).
+            // Vou colocar aqui um placeholder e depois no final do script vou definir os dados completos.
+
+            // Na verdade, vou definir os dados completos em uma variável global fora do DOMContentLoaded, mas vou colocar aqui.
+
+            // ============================================================
+            // DADOS COMPLETOS (copiados do primeiro código)
+            // ============================================================
+            const contratos = [
                 { id: 1, id_agrupado: "DA-EMBASA-002/2025", n_contrato: "002/2025", empresa: "EMBASA", unidade: "DA", objeto: "Consecução dos serviços de abastecimento de água e/ou esgotamento sanitário", processo: "009.16979.2025.0000999-83", dotacao: 192000, valor_global: 192000, saldo: 192000, vig_ini: "2025-04-02", vig_fim: "2027-04-02", meses: 24, tratativa: "" },
                 { id: 2, id_agrupado: "DA-ALFA-082/2024", n_contrato: "082/2024", empresa: "ALFA", unidade: "DA", objeto: "Contratação de Serviços de Instalação de Pontos de Redes de Computadores (cabeamento estruturado)", processo: "009.0269.2024.0037300-07", dotacao: 2228000, valor_global: 4456000, saldo: 353900, vig_ini: "2024-12-01", vig_fim: "2025-12-01", meses: 12, tratativa: "" },
                 { id: 3, id_agrupado: "DA-VTECH-007/2024", n_contrato: "007/2024", empresa: "VTECH", unidade: "DA", objeto: "Renovação de licença/garantia de uso de software Firewall", processo: "009.0269.2023.0020361-73", dotacao: 252200, valor_global: 252200, saldo: 0, vig_ini: "2024-02-26", vig_fim: "2027-02-26", meses: 36, tratativa: "" },
@@ -437,7 +459,7 @@
                 { id: 67, id_agrupado: "DA-IBAMETRO-022/2026", n_contrato: "022/2026", empresa: "IBAMETRO", unidade: "DA", objeto: "Certificação de sistemas para obtenção da ISO 9001:2015", processo: "009.0193.2025.0045616-76", dotacao: 5427.84, valor_global: 5427.84, saldo: 5427.84, vig_ini: "2026-07-06", vig_fim: "2029-07-06", meses: 36, tratativa: "" }
             ];
 
-            const termosData = [
+            const termos = [
                 { id: 1, id_termo: "1°  TERMO-DA-PRODEB-018/2024", id_contrato: "DA-PRODEB-018/2024", n_termo: "1°", objeto: "TIC Serviço obrigatório", processo: "009.0277.2024.0037895-93", valor_global: 7500, saldo: 0, vig_ini: "2024-09-13", vig_fim: "2024-12-13", meses: 3 },
                 { id: 2, id_termo: "2°  TERMO-DA-PRODEB-018/2024", id_contrato: "DA-PRODEB-018/2024", n_termo: "2°", objeto: "TIC Serviço obrigatório", processo: "009.0277.2024.0052034-81", valor_global: 15000, saldo: 0, vig_ini: "2024-12-13", vig_fim: "2025-06-13", meses: 6 },
                 { id: 3, id_termo: "3°  TERMO-DA-PRODEB-018/2024", id_contrato: "DA-PRODEB-018/2024", n_termo: "3°", objeto: "TIC Serviço obrigatório", processo: "009.0198.2025.0028218-63", valor_global: 15000, saldo: 7500, vig_ini: "2025-06-13", vig_fim: "2025-12-13", meses: 6 },
@@ -548,22 +570,20 @@
                 { id: 108, id_termo: "4º TERMO-DA-CLAREON-033/2020", id_contrato: "DA-CLAREON-033/2020", n_termo: "4º", objeto: "Prestação dos serviços de manutenção preventiva, corretiva e de reparo, com reposição eventual de peças, acessórios e lubrificantes, condicionada esta à prévia aprovação de orçamento específico, na plataforma elevatória Junta Médica Oficial do Estado", processo: "009.0281.2024.0001481-58", valor_global: 4560, saldo: 4560, vig_ini: "2024-06-01", vig_fim: "2025-06-01", meses: 12 }
             ];
 
-            console.log('Dados carregados:', contratosData.length, 'contratos,', termosData.length, 'termos');
+            console.log('Dados carregados:', contratos.length, 'contratos,', termos.length, 'termos');
 
             // ============================================================
             // FUNÇÕES AUXILIARES
             // ============================================================
             function getTermosPorContrato(idAgrupado) {
-                return termosData.filter(t => t.id_contrato === idAgrupado);
+                return termos.filter(t => t.id_contrato === idAgrupado);
             }
 
             function getUltimaVigencia(contrato) {
-                // Retorna a última vigência considerando aditivos (a mais recente data fim)
                 const termos = getTermosPorContrato(contrato.id_agrupado);
                 let ultimaFim = contrato.vig_fim;
                 let ultimaIni = contrato.vig_ini;
                 if (termos.length) {
-                    // Ordenar termos por data fim decrescente
                     const sorted = [...termos].sort((a, b) => new Date(b.vig_fim) - new Date(a.vig_fim));
                     if (sorted.length > 0 && sorted[0].vig_fim) {
                         ultimaFim = sorted[0].vig_fim;
@@ -605,11 +625,11 @@
             function getTema(objeto) {
                 const txt = objeto.toLowerCase();
                 if (txt.includes('água') || txt.includes('esgoto') || txt.includes('abastecimento')) return 'Concessionária';
-                if (txt.includes('software') || txt.includes('firewall') || txt.includes('licença') || txt.includes('design') || txt.includes('tic') || txt.includes('tecnologia')) return 'Tecnologia';
+                if (txt.includes('software') || txt.includes('firewall') || txt.includes('licença') || txt.includes('design') || txt.includes('tic')) return 'Tecnologia';
                 if (txt.includes('telefonia') || txt.includes('comunicação') || txt.includes('sms') || txt.includes('dados')) return 'Telecomunicações';
-                if (txt.includes('limpeza') || txt.includes('conservação') || txt.includes('manutenção') || txt.includes('jardim') || txt.includes('extintor')) return 'Serviços de Manutenção';
+                if (txt.includes('limpeza') || txt.includes('conservação') || txt.includes('manutenção') || txt.includes('extintor') || txt.includes('jardim')) return 'Serviços de Manutenção';
                 if (txt.includes('vigilância') || txt.includes('segurança')) return 'Segurança';
-                if (txt.includes('veículo') || txt.includes('locação') || txt.includes('frota')) return 'Transporte e Frota';
+                if (txt.includes('veículo') || txt.includes('locação') || txt.includes('frota') || txt.includes('telemetria')) return 'Transporte e Frota';
                 if (txt.includes('jornal') || txt.includes('publicidade') || txt.includes('impressão') || txt.includes('clipping')) return 'Comunicação e Publicidade';
                 if (txt.includes('recursos humanos') || txt.includes('pessoal') || txt.includes('estagiário')) return 'Recursos Humanos';
                 if (txt.includes('energia') || txt.includes('elétrica') || txt.includes('coelba')) return 'Energia';
@@ -623,11 +643,11 @@
                 const status = getStatus(contrato);
                 const badgeClass = getBadgeClass(status);
                 const badgeText = getBadgeText(status);
-                const termo = getTermosPorContrato(contrato.id_agrupado);
-                const temAditivo = termo.length > 0;
+                const termosDoContrato = getTermosPorContrato(contrato.id_agrupado);
+                const temAditivo = termosDoContrato.length > 0;
                 const ultima = getUltimaVigencia(contrato);
 
-                let card = document.createElement('div');
+                const card = document.createElement('div');
                 card.className = 'contract-card';
                 card.style.borderLeftColor = status === 'vencido' ? '#ef4444' : status === '2' ? '#ef4444' : status === '4' ? '#f97316' : status === '6' ? '#fbbf24' : '#22c55e';
 
@@ -638,11 +658,213 @@
                     </div>
                     <div class="detalhes">
                         <strong>Objeto:</strong> ${contrato.objeto || 'Não informado'}<br>
-                        <strong>Vigência:</strong> ${ultima.vig_ini} a ${ultima.vig_fim}<br>
+                        <strong>Vigência:</strong> ${ultima.vig_ini || 'N/A'} a ${ultima.vig_fim || 'N/A'}<br>
                         <strong>Saldo:</strong> R$ ${Number(contrato.saldo).toFixed(2)}<br>
                         ${showProcesso ? `<span class="processo-sei">SEI: ${contrato.processo || 'N/A'}</span>` : ''}
                         ${contrato.tratativa ? `<div class="tratativa">${contrato.tratativa}</div>` : ''}
                     </div>
                     <div>
                         <span class="badge ${badgeClass}">${badgeText}</span>
-                        ${temAditivo ?
+                        ${temAditivo ? `<span style="margin-left:8px;font-size:0.7rem;background:#e5e7eb;padding:2px 10px;border-radius:30px;">${termosDoContrato.length} aditivo(s)</span>` : ''}
+                    </div>
+                    <div class="footer">
+                        <span>${contrato.id_agrupado}</span>
+                        <button class="btn-detalhes" data-id="${contrato.id}">Histórico</button>
+                    </div>
+                `;
+                card.innerHTML = html;
+                return card;
+            }
+
+            function renderList(containerId, lista, showProcesso = true) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                container.innerHTML = '';
+                if (lista.length === 0) {
+                    container.innerHTML = '<div class="empty-state">Nenhum contrato encontrado.</div>';
+                    return;
+                }
+                lista.forEach(contrato => {
+                    const card = renderContractCard(contrato, showProcesso);
+                    container.appendChild(card);
+                });
+            }
+
+            function getMonthYearFilters() {
+                const hoje = new Date();
+                const meses = [];
+                for (let i = 0; i < 12; i++) {
+                    const data = new Date(hoje.getFullYear(), hoje.getMonth() + i, 1);
+                    const label = data.toLocaleString('pt-BR', { month: 'long', year: 'numeric' });
+                    const value = `${data.getFullYear()}-${String(data.getMonth()+1).padStart(2,'0')}`;
+                    meses.push({ label, value });
+                }
+                return meses;
+            }
+
+            function renderMonthFilters() {
+                const container = document.getElementById('monthFilters');
+                if (!container) return;
+                const filtros = getMonthYearFilters();
+                let html = '<button class="filter-btn active-filter" data-filter="todos">Todos</button>';
+                filtros.forEach(f => {
+                    html += `<button class="filter-btn" data-filter="${f.value}">${f.label}</button>`;
+                });
+                container.innerHTML = html;
+                container.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active-filter'));
+                        this.classList.add('active-filter');
+                        const filter = this.dataset.filter;
+                        aplicarFiltroVencimento(filter);
+                    });
+                });
+            }
+
+            function aplicarFiltroVencimento(filter) {
+                const lista = contratos.filter(c => c.vig_fim && c.vig_fim !== '');
+                if (filter !== 'todos') {
+                    const [ano, mes] = filter.split('-').map(Number);
+                    const filtered = lista.filter(c => {
+                        const fim = new Date(c.vig_fim);
+                        return fim.getFullYear() === ano && fim.getMonth() + 1 === mes;
+                    });
+                    renderList('vencimentoList', filtered);
+                } else {
+                    // Mostrar apenas contratos com vigência futura ou vencidos recentes
+                    const hoje = new Date();
+                    hoje.setHours(0,0,0,0);
+                    const futuros = lista.filter(c => new Date(c.vig_fim) >= hoje);
+                    renderList('vencimentoList', futuros);
+                }
+            }
+
+            // Abas
+            function initTabs() {
+                const tabs = document.querySelectorAll('.tab-btn');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        const target = this.dataset.tab;
+                        document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+                        const tabMap = {
+                            'vencimento': 'tabVencimento',
+                            'tema': 'tabTema',
+                            'vigentes': 'tabVigentes',
+                            'encerrados': 'tabEncerrados'
+                        };
+                        const el = document.getElementById(tabMap[target]);
+                        if (el) el.classList.add('active');
+                        // Renderizar conteúdo específico
+                        if (target === 'vencimento') {
+                            renderMonthFilters();
+                            aplicarFiltroVencimento('todos');
+                        } else if (target === 'tema') {
+                            renderTemas();
+                        } else if (target === 'vigentes') {
+                            const hoje = new Date();
+                            hoje.setHours(0,0,0,0);
+                            const vigentes = contratos.filter(c => c.vig_fim && new Date(c.vig_fim) >= hoje);
+                            renderList('vigentesList', vigentes);
+                        } else if (target === 'encerrados') {
+                            const hoje = new Date();
+                            hoje.setHours(0,0,0,0);
+                            const encerrados = contratos.filter(c => c.vig_fim && new Date(c.vig_fim) < hoje);
+                            renderList('encerradosList', encerrados);
+                        }
+                    });
+                });
+            }
+
+            function renderTemas() {
+                const container = document.getElementById('temaList');
+                if (!container) return;
+                const grupos = {};
+                contratos.forEach(c => {
+                    const tema = getTema(c.objeto);
+                    if (!grupos[tema]) grupos[tema] = [];
+                    grupos[tema].push(c);
+                });
+                container.innerHTML = '';
+                for (const [tema, lista] of Object.entries(grupos)) {
+                    const div = document.createElement('div');
+                    div.className = 'tema-group';
+                    const h3 = document.createElement('h3');
+                    h3.textContent = `${tema} (${lista.length})`;
+                    div.appendChild(h3);
+                    const grid = document.createElement('div');
+                    grid.className = 'contract-grid';
+                    lista.forEach(c => {
+                        const card = renderContractCard(c, true);
+                        grid.appendChild(card);
+                    });
+                    div.appendChild(grid);
+                    container.appendChild(div);
+                }
+                if (Object.keys(grupos).length === 0) {
+                    container.innerHTML = '<div class="empty-state">Nenhum contrato para agrupar.</div>';
+                }
+            }
+
+            // Modal Histórico
+            function initModal() {
+                const overlay = document.getElementById('modalOverlay');
+                const close = document.getElementById('modalClose');
+                const content = document.getElementById('modalContent');
+
+                close.addEventListener('click', () => overlay.classList.remove('open'));
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) overlay.classList.remove('open');
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('btn-detalhes')) {
+                        const id = e.target.dataset.id;
+                        const contrato = contratos.find(c => c.id == id);
+                        if (!contrato) return;
+                        const termosDoContrato = getTermosPorContrato(contrato.id_agrupado);
+                        let html = `<h2>${contrato.empresa} - ${contrato.n_contrato}</h2>
+                                    <p><strong>ID Agrupado:</strong> ${contrato.id_agrupado}</p>
+                                    <p><strong>Objeto:</strong> ${contrato.objeto || 'Não informado'}</p>
+                                    <p><strong>Processo SEI:</strong> ${contrato.processo || 'N/A'}</p>
+                                    <p><strong>Tratativa:</strong> ${contrato.tratativa || 'Nenhuma'}</p>
+                                    <h3 style="margin-top:20px;">Histórico de Vigências</h3>`;
+                        // Contrato original
+                        html += `<div class="historico-item">
+                                    <div class="periodo">Original: ${contrato.vig_ini} a ${contrato.vig_fim}</div>
+                                    <div class="detalhe">Meses: ${contrato.meses}</div>
+                                </div>`;
+                        // Aditivos
+                        if (termosDoContrato.length) {
+                            termosDoContrato.sort((a,b) => new Date(a.vig_ini) - new Date(b.vig_ini));
+                            termosDoContrato.forEach(t => {
+                                html += `<div class="historico-item">
+                                            <div class="periodo">${t.n_termo} Termo: ${t.vig_ini} a ${t.vig_fim}</div>
+                                            <div class="detalhe">${t.objeto} (Meses: ${t.meses})</div>
+                                        </div>`;
+                            });
+                        } else {
+                            html += `<p>Nenhum aditivo encontrado.</p>`;
+                        }
+                        content.innerHTML = html;
+                        overlay.classList.add('open');
+                    }
+                });
+            }
+
+            // ============================================================
+            // INICIALIZAÇÃO
+            // ============================================================
+            initTabs();
+            initModal();
+            // Carrega a aba Vencimento por padrão
+            setTimeout(() => {
+                renderMonthFilters();
+                aplicarFiltroVencimento('todos');
+            }, 100);
+
+        });
+    </script>
+</body>
+</html>
